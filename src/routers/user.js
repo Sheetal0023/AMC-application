@@ -548,7 +548,11 @@ router.post('/buyamc', auth, async(req, res) => {
             return e.useremail == req.user.email
         })
         if(!findOut) {
-        userAmc.userInformation = userAmc.userInformation.concat({useremail:req.user.email})
+        userAmc.userInformation = userAmc.userInformation.concat({
+            useremail:req.user.email,
+            mobileNumber: req.user.phone,
+            username: req.user.username,
+        })
         userAmc.save()
         res.send(userAmc)
         } else {

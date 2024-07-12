@@ -54,6 +54,14 @@ const amcSchema = new mongoose.Schema({
         useremail: {
             type: String,
             require: true,
+        },
+        mobileNumber: {
+            type: Number,
+            required: true,
+        },
+        username: {
+            type: String,
+            reqquired: true,
         }
     }],
     owner: {

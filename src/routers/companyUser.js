@@ -545,8 +545,17 @@ router.post('/registeramc', compauth, async(req, res) => {
 
 //About 
 
-router.post('/getamcdetails', async(req, res) => {
-    res.send(req.body)
+router.post('/companyamcdetails', compauth, async(req, res) => {
+    try {
+        
+        const amcdetail = await companyAmcs.findById(req.body.id)
+        res.render('companyamcdetails', {
+            amcdetail
+        })
+
+    } catch (e) {
+        
+    }
 })
 
 

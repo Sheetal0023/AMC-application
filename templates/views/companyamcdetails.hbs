@@ -15,7 +15,7 @@
                 <ul class="head-ul">
                     <li><a href="/profile">Home</a></li>
                     <li><a href="">Shop</a></li>
-                    <li><a href="/companyamcregistration">Register AMC</a></li>
+                    <li><a href="/registeramc">Register AMC</a></li>
                 </ul>
         
             </div>
@@ -31,15 +31,15 @@
                                </div>
                                <div class="settingList">
                                     <div class="settingListIcon"><img src="./img/logout-32.ico" alt="" width="25px"></div>
-                                    <div class="settingListLink"><a href="/companylogout">Logout</a></div>
+                                    <div class="settingListLink"><a href="/logout">Logout</a></div>
                                 </div>
                                 <div class="settingList">
                                     <div class="settingListIcon"><img src="./img/account-logout-32.ico" alt="" width="25px" style="transform: rotate(180deg); margin-left: 1px;"></div>
-                                    <div class="settingListLink"><a href="/companylogoutall">Logout all</a></div>
+                                    <div class="settingListLink"><a href="/logoutall">Logout all</a></div>
                                </div>
                                <div class="settingList">
                                     <div class="settingListIcon"><img src="./img/delete-32.ico" alt="" width="25px"></div>
-                                    <div class="settingListLink"><a href="/companydeleteuser">Delete Account</a></div>
+                                    <div class="settingListLink"><a href="/deleteuser">Delete Account</a></div>
                                 </div>
         
                             </div>
@@ -164,61 +164,66 @@
             </div>
         </div>
         <div class="list" id="append">
-            {{#each amcs}}
-             <form action="/companyamcdetails" method="post">
                 <div class="listValue">
                     <div class="amcHead">
-                        <div class="head One">{{this.device_name}}</div>
+                        <div class="head One">{{amcdetail.device_name}}</div>
                         <div class="head Two">
-                            ₹{{this.contract_charges}}/-
-                            <div class="contract">{{this.contract_period}}</div>
+                            ₹{{amcdetail.contract_charges}}/-
+                            <div class="contract">{{amcdetail.contract_period}}</div>
                         </div>
                     </div>
-                    <hr>
+                    <hr class="tablehr">
                     <div class="amcContent">
                         <div class="amcData">
                             <div class="first">Device category</div>
-                            <div class="second">{{this.device_cetagory}}</div>
+                            <div class="second">{{amcdetail.device_cetagory}}</div>
                         </div>
                         <div class="amcData">
-                            <div class="first">{{this.maintenance_period_one}}</div>
-                            <div class="second">₹{{this.charges_one}}</div>
+                            <div class="first">{{amcdetail.maintenance_period_one}}</div>
+                            <div class="second">₹{{amcdetail.charges_one}}</div>
                         </div>
                         <div class="amcData">
-                            <div class="first">{{this.maintenance_period_two}}</div>
-                            <div class="second">₹{{this.charges_two}}</div>
+                            <div class="first">{{amcdetail.maintenance_period_two}}</div>
+                            <div class="second">₹{{amcdetail.charges_two}}</div>
                         </div>
                         <div class="amcData">
-                            <div class="first">{{this.maintenance_period_three}}</div>
-                            <div class="second">₹{{this.charges_three}}</div>
+                            <div class="first">{{amcdetail.maintenance_period_three}}</div>
+                            <div class="second">₹{{amcdetail.charges_three}}</div>
                         </div>
                         <div class="amcData">
-                            <div class="first">{{this.maintenance_period_four}}</div>
-                            <div class="second">₹{{this.charges_four}}</div>
+                            <div class="first">{{amcdetail.maintenance_period_four}}</div>
+                            <div class="second">₹{{amcdetail.charges_four}}</div>
                         </div>
                         
                     </div>
-                    <div class="form">
-                        <input type="text" name="id" value="{{this._id}}" hidden>
-                        <button type="submit" class="showBtn"> Show More</button>
+                    <div>
+                         <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>User Email</th>
+                            <th>Contact</th>
+                        </tr>
+                        {{#each amcdetail.userInformation}}
+                            <tr>
+                                <td>{{this.username}}</td>
+                                <td>{{this.useremail}}</td>
+                                <td>{{this.mobileNumber}}</td>
+                            </tr>
+                        {{/each}}
+                        
+                    </table>
                     </div>
+                   
                     
+                </form>
                 </div>
                 
-                </form>
-            {{/each}}
         </div>
         
         
         <div class="footer">Footer</div>
     </div>
 
-<script>
-
-    
-     
-
-</script>
 
 </body>
 </html>
