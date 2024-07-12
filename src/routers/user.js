@@ -554,7 +554,7 @@ router.post('/buyamc', auth, async(req, res) => {
             username: req.user.username,
         })
         userAmc.save()
-        res.send(userAmc)
+        
         } else {
             res.send('You are already Bought this')
         }
