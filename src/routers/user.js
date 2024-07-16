@@ -218,6 +218,7 @@ router.get('/profile', auth, async(req, res)=>{
   
         const amcs = await amc.find({})
 
+        
         res.render('profile',{
             title:req.user.username,
             email:req.user.email,
@@ -554,9 +555,16 @@ router.post('/buyamc', auth, async(req, res) => {
             username: req.user.username,
         })
         userAmc.save()
-        
+        res.render('success', {
+            mainHead: 'Success',
+            describe: 'Suceess',
+            linkFirst: '/',
+            linkSecond: '/profile',
+            linkValue: 'My Profile'
+        })
+
         } else {
-            res.send('You are already Bought this')
+            res.redirect('/profile')
         }
     } catch(e) {
         console.log(e)
