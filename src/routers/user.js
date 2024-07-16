@@ -10,7 +10,6 @@ const bcrypt = require('bcryptjs')
 
 const auth = require('../middleware/auth')
 const forgotAuth = require('../middleware/forgotAuth')
-const smsAuth = require('../middleware/smsAuth')
 
 const { smsOTP, sendMessage} = require('../sms/smsVerify')
 
@@ -484,7 +483,8 @@ router.post('/newpass' ,forgotAuth ,async(req, res)=>{
                 mainHead: 'Success',
                 describe: 'Your Password has been changed successfully',
                 linkFirst: '/',
-                linkSecond: '/login'
+                linkSecond: '/login',
+                linkValue: 'Login'
             })
         }
     } catch(e) {
