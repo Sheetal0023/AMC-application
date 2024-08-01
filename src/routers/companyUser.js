@@ -366,7 +366,7 @@ router.post('/companymobileNumber', compforgotAuth, async(req, res) => {
             const otpSMS = smsOTP()
             const user = await companyUser.findOne({mobileNumber:mobileNumber})
             console.log(otpSMS)
-            // sendMessage(otpSMS, user.mobileNumber)
+            sendMessage(otpSMS, user.mobileNumber)
             console.log(otpSMS)
             user.otp = otpSMS
             await user.save()

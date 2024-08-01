@@ -393,7 +393,7 @@ router.post('/mobileNumber', forgotAuth, async(req, res) => {
             const otpSMS = smsOTP()
             const user = await User.findOne({phone:phone})
             console.log(otpSMS)
-            // sendMessage(otpSMS, user.phone)
+            sendMessage(otpSMS, user.phone)
             console.log(`User OTP ${otpSMS}`)
             user.otp = otpSMS
             await user.save()
