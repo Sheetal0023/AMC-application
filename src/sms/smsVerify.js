@@ -14,7 +14,7 @@ const sendMessage = async (otp, phonenumber) => {
   try{
     await client.messages
     .create({
-    body: `Task-Manager-APP: OTP ${otp} to reset your password`,
+    body: `AMC-Bazar-APP: OTP ${otp} to reset your password`,
     to: `+91${phonenumber}`, // Text your number
     from: '+15087196849', // From a valid Twilio number
 })

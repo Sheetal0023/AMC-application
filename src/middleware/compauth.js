@@ -4,7 +4,7 @@ const Companies = require('../models/companies')
 const compauth = async(req, res, next) => {
       try{  
         const comptoken = req.cookies.cjwt
-        const decode = jwt.verify(comptoken, process.env.COMP_AUTH_KEY) //'thisiscompanyauthkey'
+        const decode = jwt.verify(comptoken, process.env.COMP_AUTH_KEY) 
         const compuser = await Companies.findById({_id:decode._id})
         
         if(!compuser){

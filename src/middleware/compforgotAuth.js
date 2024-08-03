@@ -7,7 +7,7 @@ const compforgotAuth = async(req, res, next) => {
         if(!comptoken) {
             throw new Error('You are not Authorized')
         }
-        const decode = jwt.verify(comptoken.toString(), process.env.COMP_FORGOT_AUTH_KEY) //'thisishiddenkey'
+        const decode = jwt.verify(comptoken.toString(), process.env.COMP_FORGOT_AUTH_KEY) 
         const compuser = await companies.findById({_id:decode._id})
         if(!compuser) {
             throw new Error("You are not Authorized")

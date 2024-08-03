@@ -7,7 +7,7 @@ const forgotAuth = async(req, res, next) => {
         if(!token) {
             throw new Error('You are not Authorized')
         }
-        const decode = jwt.verify(token.toString(), process.env.FORGOT_AUTH_KEY) //'thisishiddenkey'
+        const decode = jwt.verify(token.toString(), process.env.FORGOT_AUTH_KEY) 
         const user = await User.findById({_id:decode._id})
         if(!user) {
             throw new Error("You are not Authorized")

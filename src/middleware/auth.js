@@ -5,7 +5,7 @@ const auth = async(req, res, next) => {
       try{  
        
         const token = req.cookies.jwt
-        const decode = jwt.verify(token, process.env.AUTH_KEY) //'thisiskey'
+        const decode = jwt.verify(token, process.env.AUTH_KEY) 
         const user = await User.findById({_id:decode._id})
         if(!user){
             throw new Error('Please login')
