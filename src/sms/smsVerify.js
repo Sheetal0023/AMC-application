@@ -16,7 +16,7 @@ const sendMessage = async (otp, phonenumber) => {
     .create({
     body: `AMC-Bazar-APP: OTP ${otp} to reset your password`,
     to: `+91${phonenumber}`, // Text your number
-    from: '+15087196849', // From a valid Twilio number
+    from: '+18145464321', // From a valid Twilio number
 })
   } catch(e) {
     console.log(e)
